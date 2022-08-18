@@ -16,6 +16,7 @@ namespace OnPaymentReceived
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
             [Queue("orders")] IAsyncCollector<Order> orderQueue,
+            [Table("orders")] IAsyncCollector<Order> orderTable,
             ILogger log
             )
         {
@@ -27,6 +28,10 @@ namespace OnPaymentReceived
             var order = JsonConvert.DeserializeObject<Order>(requestBody);
 
             await orderQueue.AddAsync(order);
+
+            order.PartitionKey = "orders";
+            order.RowKey = order.OrderId;
+            await orderTable.AddAsync(order);
 
             log.LogInformation($"Order {order.OrderId} received from {order.Email} for product {order.ProductId}");
 
