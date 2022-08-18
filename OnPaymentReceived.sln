@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenerateLicenseFile", "Gene
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentService.Shared", "PaymentService.Shared\PaymentService.Shared.csproj", "{89C92BF1-1120-4031-8076-225B1DF5B9C1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailLicenceFile", "EmailLicenceFile\EmailLicenceFile.csproj", "{34F1B2B4-EE6B-4A6E-A87F-BBE96E71CED3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{89C92BF1-1120-4031-8076-225B1DF5B9C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89C92BF1-1120-4031-8076-225B1DF5B9C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89C92BF1-1120-4031-8076-225B1DF5B9C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34F1B2B4-EE6B-4A6E-A87F-BBE96E71CED3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34F1B2B4-EE6B-4A6E-A87F-BBE96E71CED3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34F1B2B4-EE6B-4A6E-A87F-BBE96E71CED3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34F1B2B4-EE6B-4A6E-A87F-BBE96E71CED3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
