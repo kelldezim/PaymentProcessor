@@ -1,4 +1,4 @@
-﻿namespace OnPaymentReceived.Models
+﻿namespace PaymentService.Shared.Models
 {
     public class Order
     {
