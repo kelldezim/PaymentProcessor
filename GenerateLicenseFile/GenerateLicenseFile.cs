@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;
@@ -10,11 +11,17 @@ namespace GenerateLicenseFile
     public class GenerateLicenseFile
     {
         [FunctionName("GenerateLicenseFile")]
-        public void Run(
+        public async Task Run(
             [QueueTrigger("orders", Connection = "AzureWebJobsStorage")]Order order,
-            [Blob("licences/{rand-guid}.lic")] TextWriter outputBlob,
+            IBinder binder,
+            //[Blob("licences/{rand-guid}.lic")] TextWriter outputBlob,
             ILogger log)
         {
+            var outputBlob = await binder.BindAsync<TextWriter>(new BlobAttribute(blobPath: $"licences/{order.OrderId}.lic")
+            {
+                Connection = "AzureWebJobsStorage",
+            });
+
             outputBlob.WriteLine($"OrderId: {order.OrderId}");
             outputBlob.WriteLine($"Email: {order.Email}");
             outputBlob.WriteLine($"ProductId: {order.ProductId}");
